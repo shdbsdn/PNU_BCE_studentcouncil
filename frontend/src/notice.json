@@ -1,0 +1,15 @@
+[
+    {
+      "id": 1,
+      "title": "First Notice",
+      "content": "This is the first notice.",
+      "date": "2024-06-07"
+    },
+    {
+      "id": 2,
+      "title": "Second Notice",
+      "content": "This is the second notice.",
+      "date": "2024-06-08"
+    }
+  ]
+  
