@@ -7,6 +7,7 @@
   let prevPage = null;
   let currentPage = 1;
   let totalPages = 1;
+  let totalNotices = 0;
 
   async function fetchNotices(url) {
     const response = await axios.get(url);
@@ -14,7 +15,8 @@
     nextPage = response.data.next;
     prevPage = response.data.previous;
     currentPage = parseInt(new URL(url).searchParams.get('page')) || 1;
-    totalPages = Math.ceil(response.data.count / 10);
+    totalNotices = response.data.count;
+    totalPages = Math.ceil(totalNotices / 10);
   }
 
   onMount(async () => {
@@ -93,35 +95,34 @@
   }
 
   .image {
-  width: 100%;
-  height: 100px;
-  object-fit: cover;
-  display: block;
-}
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+  }
 
-.image-container {
-  position: relative;
-  width: 100%;
-  margin: 0 auto;
-  margin-top: -17px;
-}
+  .image-container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: -17px;
+  }
 
-.text-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 2em;
-  font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  text-align: center;
-}
+  .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
 
-.custom-line {
-  margin-top: -15px; /* 원하는 상단 여백으로 조정 */
-}
-
+  .custom-line {
+    margin-top: -15px; /* 원하는 상단 여백으로 조정 */
+  }
 
 </style>
 
@@ -133,9 +134,9 @@
 <div class="relative flex items-center custom-line">
   <div class="flex-grow border-t border-gray-300"></div>
   <div class="flex-shrink mx-4 flex space-x-2">
-      <div class="w-2 h-2 bg-gray-300"></div>
-      <div class="w-2 h-2 bg-gray-300"></div>
-      <div class="w-2 h-2 bg-gray-300"></div>
+    <div class="w-2 h-2 bg-gray-300"></div>
+    <div class="w-2 h-2 bg-gray-300"></div>
+    <div class="w-2 h-2 bg-gray-300"></div>
   </div>
   <div class="flex-grow border-t border-gray-300"></div>
 </div>
@@ -153,7 +154,7 @@
     <tbody>
       {#each notices as notice, index}
         <tr on:click={() => window.location.href = `/Notice/${notice.id}`} style="cursor: pointer;">
-          <td>{(currentPage - 1) * 10 + index + 1}</td>
+          <td>{totalNotices - ((currentPage - 1) * 10 + index)}</td> <!-- 전체 공지글의 순서를 기반으로 번호를 표시 -->
           <td class="notice-title">
             {#if notice.image}
               <img src="{notice.image}" alt="{notice.title}" class="notice-image" />
