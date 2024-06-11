@@ -49,10 +49,36 @@
     margin-top: -15px; /* 원하는 상단 여백으로 조정 */
   }
   
-
   .different-font {
     font-family: 'Caveat', cursive;
     font-size: 2em;
+    text-align: center; /* Center the text */
+    display: block; /* Make the span a block element */
+    margin-top: 20px; /* Add some margin for spacing */
+  }
+
+  .different-font-2 {
+    font-family: 'Caveat', cursive;
+    font-size: 5em;
+    font-style: bold;
+    text-align: center; /* Center the text */
+    display: block; /* Make the span a block element */
+    margin-top: 20px; /* Add some margin for spacing */
+  }
+
+  .different-font-3 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 3em;
+    text-align: center; /* Center the text */
+    display: block; /* Make the span a block element */
+    margin-top: 20px; /* Add some margin for spacing */
+  }
+
+  .blue-line {
+    border-top: 4px solid rgb(1, 0, 82);
+    width: 29%; /* Adjust the width as needed */
+    margin: 0 auto;
+    margin-top: 1px; /* Add some margin for spacing */
   }
 </style>
 
@@ -88,3 +114,8 @@
   </div>
   <div class="flex-grow border-t border-gray-300"></div>
 </div>
+
+<span class="different-font-2">TOOGEHTER = Too+Together</span>
+<span class="different-font-3">'무엇이든 함께, 다같이'</span>
+
+<div class="blue-line"></div>

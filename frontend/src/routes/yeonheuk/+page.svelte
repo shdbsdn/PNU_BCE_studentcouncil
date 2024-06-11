@@ -152,12 +152,3 @@
   {/each}
   </div>
 </div>
-
-<Footer class="mt-8">
-  <FooterCopyright href="/" by="PNU BCE™" year={2024} />
-  <div class="text-center mt-2">
-    <p>주소: 경상남도 양산시 물금읍 부산대학로 49 경암공학관 106호</p>
-    <p>행정실: 051-510-8544</p>
-    <p>이메일: bce.pnu@pusan.ac.kr</p>
-  </div>
-</Footer>
