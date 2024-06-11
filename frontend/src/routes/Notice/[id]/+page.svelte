@@ -33,11 +33,16 @@
     border-radius: 8px;
     padding: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
   }
   .notice-title {
     font-size: 2rem;
     color: #333;
     margin-bottom: 0.5rem;
+  }
+  .notice-divider {
+    border-top: 1px solid #ddd;
+    margin: 1rem 0;
   }
   .notice-content {
     font-size: 1.2rem;
@@ -56,13 +61,15 @@
   }
   .back-button {
     display: inline-block;
-    margin-top: 1rem;
     padding: 0.1rem 0.5rem;
     background-color: #002850;
     color: white;
     text-decoration: none;
     border-radius: 1px;
     transition: background-color 0.3s ease;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
   }
   .back-button:hover {
     background-color: #0056b3;
@@ -76,6 +83,7 @@
     <div class="notice">
       <div class="notice-title">{notice.title}</div>
       <div class="notice-date"> {new Date(notice.created_at).toLocaleDateString()}</div>
+      <div class="notice-divider"></div>
       <div class="notice-content">{notice.content}</div>
       {#if notice.image}
         <img class="notice-image" src="{notice.image}" alt="{notice.title}" />
